@@ -4,10 +4,13 @@ import { Button, Input, Layout, Text } from '@ui-kitten/components';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useWindowDimensions } from 'react-native';
 import { MyIcon } from '../components/ui/MyIcon';
+import { StackScreenProps } from '@react-navigation/stack';
+import { RootStackParams } from '../navigation/StackNavigation';
 
+///// esta intefaza la vas a colocar en cada pantalla la cual va a tener la navegacion
+interface Props extends StackScreenProps<RootStackParams, 'Login'>{}
 
-
-export const LoginScreen = () => {
+export const LoginScreen = ({navigation}:Props) => {
     const { height } = useWindowDimensions();
 
     return (
@@ -25,6 +28,7 @@ export const LoginScreen = () => {
                         keyboardType='email-address'
                         autoCapitalize='none'
                         style={Styles.input}
+                        accessoryLeft={<MyIcon name="email-outline" color="#007AFF" size={20} white={true} />}
                     />
 
                     <Input
@@ -32,6 +36,7 @@ export const LoginScreen = () => {
                         autoCapitalize='none'
                         secureTextEntry
                         style={Styles.input}
+                        accessoryLeft={<MyIcon name="lock-outline" color="#007AFF" size={20} white={true} />}
                     />
                 </Layout>
 
@@ -40,7 +45,7 @@ export const LoginScreen = () => {
 
                 {/*Boton */}
                 <Layout>
-                    <Button onPress={() => { }}>
+                    <Button onPress={() => navigation.navigate('Home')}>{/** de esta manera se aplica las naveaciones en pantalla* */}
                         Ingresar
                         
                         <MyIcon name="login" color="#007AFF" size={20} white={true} />
@@ -58,7 +63,7 @@ export const LoginScreen = () => {
                     <Text
                         status='primary'
                         category='s1'
-                        onPress={() => { }}>
+                        onPress={() => {}}>
                         {' '}Crear cuenta {' '}
                     </Text>
                     
