@@ -4,7 +4,10 @@ import { LoginScreen } from '../screens/LoginScreen';
 import { HomeScreen } from '../screens/HomeScreen';
 
 
-
+export type RootStackParams= {
+  Login: undefined;
+  Home: undefined;
+}
 
 const Stack = createStackNavigator();
 export const StackNavigation = () => {
