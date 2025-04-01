@@ -20,6 +20,7 @@ export const Styles= StyleSheet.create({
         color: '#333',
       },
       input: {
+        paddingTop: 20,
         height: 50,
         borderColor: '#ccc',
         borderWidth: 1,
